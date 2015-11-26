@@ -175,9 +175,9 @@ class LendingClub(object):
                     numChecked += 1              
                 else:
                     break
-                if numChecked == len(self.config.criteria):
-                    loanDict[loan['id']] = loan['fundedAmount'] / loan['loanAmount']
-                    logger.info('Loan id:' + str(loan['id']) + \
+            if numChecked == len(self.config.criteria):
+                loanDict[loan['id']] = loan['fundedAmount'] / loan['loanAmount']
+                logger.info('Loan id:' + str(loan['id']) + \
                                 ' was a match, funded percentage = ' + str(loanDict[loan['id']]))
         logger.debug('Exiting __getLoans()')
         return sorted(loanDict.items(), key=operator.itemgetter(1), reverse=True)            
